@@ -39,7 +39,8 @@ public class NetworkTest {
     @Test
     public void testToString() {
         Network network = new Network("MyNetwork");
-        String expected = "Network{name='MyNetwork'}";
+        network.setId(42L);
+        String expected = "Network [id=42, name=MyNetwork]";
         assertEquals(expected, network.toString());
     }
 }
