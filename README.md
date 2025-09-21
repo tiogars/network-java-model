@@ -1,5 +1,3 @@
-# java-public-lib
+# network-java-model
 
-Template to create a java libary to publish in github registry
-
-[![Build and test](https://github.com/tiogars/java-public-lib/actions/workflows/build.yml/badge.svg)](https://github.com/tiogars/java-public-lib/actions/workflows/build.yml)
+A Java library for managing and modeling computer networks.

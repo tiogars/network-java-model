@@ -6,24 +6,27 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>fr.tiogars</groupId>
-  <artifactId>java-public-lib</artifactId>
-  <version>1.0.11-SNAPSHOT</version>
+  <artifactId>network</artifactId>
+  <version>1.0.0</version>
 
-  <name>java-public-lib</name>
-  <description>Java Public Library</description>
-  <url>http://www.example.com</url>
+  <name>network</name>
+  <description>Network Management Library</description>
+  <url>https://github.com/tiogars/network-java-model</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.source>21</maven.compiler.source>
     <maven.compiler.target>21</maven.compiler.target>
+    <jacoco.plugin.version>0.8.13</jacoco.plugin.version>
+    <jacoco.reportPath>${main.basedir}/target/jacoco.exec</jacoco.reportPath>
+    <jacoco.itReportPath>${main.basedir}/target/jacoco-it.exec</jacoco.itReportPath>
   </properties>
 
   <distributionManagement>
     <repository>
       <id>github</id>
       <name>GitHub Packages</name>
-      <url>https://maven.pkg.github.com/tiogars/java-public-lib</url>
+      <url>https://maven.pkg.github.com/tiogars/network-java-model</url>
     </repository>
   </distributionManagement>
 
@@ -63,12 +66,47 @@
 
   <reporting>
     <plugins>
+      <!-- Maven JXR plugin for source cross-referencing -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>3.6.0</version>
+        <configuration>
+          <testSourceXref>true</testSourceXref>
+        </configuration>
+      </plugin>
       <!--
       https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-project-info-reports-plugin</artifactId>
         <version>3.9.0</version>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.11.3</version>
+        <configuration>
+          <show>public</show>
+          <!-- Removed unsupported -1.1 option -->
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>${jacoco.plugin.version}</version>
+        <reportSets>
+          <reportSet>
+            <reports>
+              <report>report</report>
+            </reports>
+          </reportSet>
+        </reportSets>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-report-plugin</artifactId>
+        <version>3.5.3</version>
       </plugin>
     </plugins>
   </reporting>
