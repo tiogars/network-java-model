@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"fr.tiogars.network","l":"Device"},{"p":"fr.tiogars.network","l":"DeviceType"},{"p":"fr.tiogars.network","l":"Interface"},{"p":"fr.tiogars.network","l":"InterfaceType"},{"p":"fr.tiogars.network","l":"Network"}];updateSearchResults();
